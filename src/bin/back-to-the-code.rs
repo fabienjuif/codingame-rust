@@ -387,10 +387,10 @@ fn main() {
         // some computations
         game.compute_distances();
 
-        // eprintln!("player 0 distances:");
-        // eprintln!("{}", game.grid.debug_distances(0));
-        // eprintln!("player 1 distances:");
-        // eprintln!("{}", game.grid.debug_distances(1));
+        for i in 0..game.players.len() {
+            eprintln!("player {} distances:", i);
+            eprintln!("{}", game.grid.debug_distances(i as i32));
+        }
         let get_best_perimeter_for_w = |w: i32, h: i32| {
             let player = game.players.get(0).unwrap();
             let cells = game
